@@ -1,0 +1,34 @@
+<html lang="en" layout:decorate="~{layout/main.html}" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+<div layout:fragment="custom-content">
+    <div class="row">
+        <div class="col-sm-6" th:each="app:${applicationRequest}" th:if="${app.isHandled()==false}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${app.getUserName()}"></h5>
+                    <h2 style="color: red" th:if="${app.isHandled()==false}"><strong>НОВАЯ*</strong></h2>
+                    <p class="card-text" th:text="${app.getCourseName()}"></p>
+                    <p class="card-text" th:text="${app.getCommentary()}"></p>
+                    <p class="card-text" th:text="${app.getPhone()}"></p>
+                    <a th:href="@{'/detailsRequest/'+${app.getId()}}" style="text-decoration: none">DETAILS</a>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-sm-6" th:each="app:${applicationRequest}" th:if="${app.isHandled()==true}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${app.getUserName()}"></h5>
+                    <h2 style="color: red" th:if="${app.isHandled()==false}"><strong>НОВАЯ*</strong></h2>
+                    <p class="card-text" th:text="${app.getCourseName()}"></p>
+                    <p class="card-text" th:text="${app.getCommentary()}"></p>
+                    <p class="card-text" th:text="${app.getPhone()}"></p>
+                    <a th:href="@{'/detailsRequest/'+${app.getId()}}" style="text-decoration: none">DETAILS</a>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+</body>
+</html>

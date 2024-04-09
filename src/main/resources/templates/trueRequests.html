@@ -1,0 +1,22 @@
+<html lang="en" layout:decorate="~{layout/main.html}" xmlns:layout="http://www.w3.org/1999/xhtml">
+<body>
+<div class="row">
+    <div layout:fragment="custom-content">
+        <div class="row">
+            <div class="col-sm-6" th:each="app:${appRequests}">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${app.getUserName()}"></h5>
+                        <p class="card-text" th:text="${app.getCourseName()}"></p>
+                        <p class="card-text" th:text="${app.getCommentary()}"></p>
+                        <p class="card-text" th:text="${app.getPhone()}"></p>
+                        <a th:href="@{'/detailsRequest/'+${app.getId()}}" style="text-decoration: none">DETAILS</a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
